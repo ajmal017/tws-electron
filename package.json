@@ -1,0 +1,10 @@
+{
+  "name": "ib-tradetron",
+  "version": "1.0.0",
+  "description": "electron GUI for IB trader workstation",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.4.10"
+  }
+}
