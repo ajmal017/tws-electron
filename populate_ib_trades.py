@@ -6,6 +6,7 @@ import csv
 import code
 import argparse
 import logging
+import sys
 
 #-----------Arguments-----------------
 
@@ -14,17 +15,14 @@ parser.add_argument('-t','--tradesfile', help='trades file')
 args = parser.parse_args()
 
 print('Start trading script beep boop')
-print('file:', args.tradesfile)
-print('End:', args.tradesfile)
-exit()
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s : %(message)s')
+logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(asctime)s %(levelname)s : %(message)s')
 logger = logging.getLogger(__name__)
 
 short_sleep = partial(sleep, 1)
 order_count = 0
 order_errors = 0
-trades_file_path = 'demo_trades.csv'
+trades_file_path = args.tradesfile #'demo_trades.csv'
 
 if __name__ == "__main__":
   conn = Connection.create(port=7496, clientId=999)
