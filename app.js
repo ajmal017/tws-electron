@@ -15,11 +15,11 @@ electron.app.on('ready', function () {
     console.log('Start Python...');
     var cmd = 'python ./populate_ib_trades.py -t ' + data
     var subpy = require('child_process').exec(cmd, function(error, stdout, sterr) { 
+      console.log('START PROCESS');
       console.log(stdout);
+      event.sender.send('log', stdout);
+      console.log('END PROCESS');
     })
-  })
-  ipc.on('log', function(event, data) {
-    event.sender.send('info', 'HELLO');
   })
 
 })
