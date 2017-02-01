@@ -6,23 +6,39 @@
 </head>
 <body>
   <div class="ui container">
+    <h2>IB Trader Workstation Plus</h2>
 
-    <h2>Trade File:</h2>
-    <button id="openFile" class="ui button" onclick="openFile();">Open</button>
-    <p id='tradeFile'></p>
+    <div class="ui form">
+      <div class="fields">
+        <div class="inline field eight wide">
+          <label>Trade File:</label>
+          <button id="openFile" class="ui button" onclick="openFile();">Open</button>
+          <p id='tradeFile'></p>
+        </div>
+        <div class="inline field eight wide">
+          <label>Allocation File:</label>
+          <button id="openAllocationFile" class="ui button" onclick="openFile();">Open</button>
+          <p id='allocationFile'></p>
+        </div>
+      </div>
+    </div>
 
-    <h2>Allocation File:</h2>
-    <p id='allocationFile'></p>
-    <button id="uploadFiles" class="ui button" onclick="uploadFiles();">Run</button>
+    <br><br>
+    <button id="uploadFiles" class="ui red big button" onclick="uploadFiles();">Run</button>
 
-    <ul id="log"></ul>
+    <div class="ui message">
+    <div class="header">
+      Results
+    </div>
+    <ul id="resultsLog">
+    </ul>
+    </div>
 
   </div>
 
-  <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="semantic/dist/semantic.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
 </body>

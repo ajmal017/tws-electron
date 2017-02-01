@@ -14,9 +14,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-t','--tradesfile', help='trades file')  
 args = parser.parse_args()
 
-print('Start trading script beep boop')
-
-logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(asctime)s %(levelname)s : %(message)s')
+# logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(asctime)s %(levelname)s : %(message)s')
+logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(asctime)s : %(message)s', datefmt="%Y-%m-%d %H:%M:%S")
 logger = logging.getLogger(__name__)
 
 short_sleep = partial(sleep, 1)
@@ -32,6 +31,8 @@ if __name__ == "__main__":
   reader = csv.DictReader(open(trades_file_path, 'rU'), delimiter=',') # Read in trades file
   short_sleep()
 
+  print('SPLIT')
+  print('Start trading script beep boop')
   for row in reader:
     symbol, quantity, action, fa_profile, cusip = \
       row["Symbol"], row["Quantity"], row["Action"], row["Account"], row["IdValue"]
