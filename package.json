@@ -5,6 +5,7 @@
   "main": "app.js",
   "license": "MIT",
   "dependencies": {
-    "electron": "^1.4.10"
+    "electron": "^1.4.10",
+    "semantic-ui": "^2.2.7"
   }
 }

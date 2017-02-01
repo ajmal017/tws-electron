@@ -3,7 +3,8 @@ import sys
 from ib.ext.Contract import Contract
 from ib.ext.Order import Order
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s %(levelname)s : %(message)s')
+# logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s %(levelname)s : %(message)s')
+logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(asctime)s %(levelname)s : %(message)s', datefmt="%Y-%m-%d %H:%M:%S")
 logger = logging.getLogger(__name__)
 
 def make_contract(symbol, cusip=None):
