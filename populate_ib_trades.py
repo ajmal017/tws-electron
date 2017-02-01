@@ -31,6 +31,9 @@ if __name__ == "__main__":
   reader = csv.DictReader(open(trades_file_path, 'rU'), delimiter=',') # Read in trades file
   short_sleep()
 
+  filename = "demo_allocation.csv"
+  conn.replaceFA(2, tools.generate_profile_xml(filename))
+
   print('SPLIT')
   print('Start trading script beep boop')
   for row in reader:
