@@ -4,21 +4,30 @@ var remote = require('electron').remote;
 var ipc = require('electron').ipcRenderer;
 
 var dialog = remote.dialog; 
-function openFile () {
+function openFile(type) {
   dialog.showOpenDialog(function (fileNames) {
       if (fileNames === undefined) return;
       App.fileName = fileNames[0];
-      document.getElementById("tradeFile").innerHTML = App.fileName;
+
+      if (type == 'trade') {
+        App.tradeFile = fileNames[0];
+        document.getElementById("tradeFile").innerHTML = App.tradeFile;
+      } else {
+        App.allocationFile = fileNames[0];
+        document.getElementById("allocationFile").innerHTML = App.allocationFile;
+      }
   });
 }
 
 function uploadFiles() {
   if (App.fileName == undefined) return;
-  ipc.send('upload', App.fileName);
+  $('#dimmer').addClass('active');
+  ipc.send('upload', { 'tradeFile': App.tradeFile, 'allocationFile': App.allocationFile });
 }
 
 ipc.on('log' , function(event , data) { 
   
+  $('#dimmer').removeClass('active');
   var ul = document.getElementById("resultsLog");
 
   
