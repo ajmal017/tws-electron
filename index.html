@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-  <p id='p1'></p>
-  <h1>Trade File:</h1>
-  <button id="openFile" onclick="openFile();">Open</button>
-  <p id='tradeFile'></p>
-  <h4>Allocation File:</h4>
-  <p id='allocationFile'></p>
-  <button id="uploadFiles" onclick="uploadFiles();">Run</button>
-  <ul id="log"></ul>
+  <div class="ui container">
 
-<script type="text/javascript" src="index.js"></script>
+    <h2>Trade File:</h2>
+    <button id="openFile" class="ui button" onclick="openFile();">Open</button>
+    <p id='tradeFile'></p>
+
+    <h2>Allocation File:</h2>
+    <p id='allocationFile'></p>
+    <button id="uploadFiles" class="ui button" onclick="uploadFiles();">Run</button>
+
+    <ul id="log"></ul>
+
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 </html>

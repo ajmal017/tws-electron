@@ -3,10 +3,6 @@ var App = {};
 var remote = require('electron').remote; 
 var ipc = require('electron').ipcRenderer;
 
-window.onload = function() {
-  document.getElementById("p1").innerHTML = 'IB-TradeTron App';
-}()
-
 var dialog = remote.dialog; 
 function openFile () {
   dialog.showOpenDialog(function (fileNames) {

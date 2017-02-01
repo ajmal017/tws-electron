@@ -65,3 +65,4 @@ if order_errors == 0:
     logger.info("All %s orders were loaded successfully" % order_count)
 else:
     logger.error("Some of the orders had errors, please review the logs")
+
