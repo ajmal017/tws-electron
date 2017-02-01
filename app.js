@@ -14,6 +14,8 @@ electron.app.on('ready', function () {
   ipc.on('upload', function(event, data) {
     console.log('Start Python...');
     var cmd = 'python ./populate_ib_trades.py -t ' + data
+
+    // http://stackoverflow.com/questions/10232192/exec-display-stdout-live
     var subpy = require('child_process').exec(cmd, function(error, stdout, sterr) { 
       console.log('START PROCESS');
       console.log(stdout);
@@ -23,3 +25,4 @@ electron.app.on('ready', function () {
   })
 
 })
+
