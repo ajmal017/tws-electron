@@ -12,12 +12,12 @@
       <div class="fields">
         <div class="inline field eight wide">
           <label>Trade File:</label>
-          <button id="openFile" class="ui button" onclick="openFile();">Open</button>
+          <button id="openFile" class="ui button" onclick="openFile('trade');">Open</button>
           <p id='tradeFile'></p>
         </div>
         <div class="inline field eight wide">
           <label>Allocation File:</label>
-          <button id="openAllocationFile" class="ui button" onclick="openFile();">Open</button>
+          <button id="openAllocationFile" class="ui button" onclick="openFile('allocation');">Open</button>
           <p id='allocationFile'></p>
         </div>
       </div>
@@ -27,9 +27,14 @@
     <button id="uploadFiles" class="ui red big button" onclick="uploadFiles();">Run</button>
 
     <div class="ui message">
+      <div id="dimmer" class="ui dimmer">
+      <div class="ui indeterminate text loader">Preparing Files</div>
+      </div>
     <div class="header">
       Results
     </div>
+    <br>
+    <!-- TODO make this a table -->
     <ul id="resultsLog">
     </ul>
     </div>

@@ -12,6 +12,7 @@ import sys
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-t','--tradesfile', help='trades file')  
+parser.add_argument('-a','--allocationfile', help='allocation file')  
 args = parser.parse_args()
 
 # logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(asctime)s %(levelname)s : %(message)s')
@@ -21,7 +22,9 @@ logger = logging.getLogger(__name__)
 short_sleep = partial(sleep, 1)
 order_count = 0
 order_errors = 0
-trades_file_path = args.tradesfile #'demo_trades.csv'
+
+trades_file_path = args.tradesfile 
+allocation_file_path = args.allocationfile
 
 if __name__ == "__main__":
   conn = Connection.create(port=7496, clientId=999)
@@ -31,8 +34,7 @@ if __name__ == "__main__":
   reader = csv.DictReader(open(trades_file_path, 'rU'), delimiter=',') # Read in trades file
   short_sleep()
 
-  filename = "demo_allocation.csv"
-  conn.replaceFA(2, tools.generate_profile_xml(filename))
+  conn.replaceFA(2, tools.generate_profile_xml(allocation_file_path))
 
   print('SPLIT')
   print('Start trading script beep boop')
