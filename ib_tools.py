@@ -45,7 +45,7 @@ def make_order(orderId, quantity, action, fa_profile, transmit=0):
     '''
 
     logger.info('Placing order with id %s' % orderId)
-    order_info = [action, quantity, fa_profile]
+    order_info = ['TRADELINE', action, quantity, fa_profile]
     logger.info(' | '.join(order_info))
 
     o = Order()

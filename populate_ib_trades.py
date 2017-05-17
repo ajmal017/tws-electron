@@ -37,7 +37,7 @@ if __name__ == "__main__":
   conn.replaceFA(2, tools.generate_profile_xml(allocation_file_path))
 
   print('SPLIT')
-  print('Start trading script beep boop')
+  print('Start')
   for row in reader:
     symbol, quantity, action, fa_profile, cusip = \
       row["Symbol"], row["Quantity"], row["Action"], row["Account"], row["IdValue"]
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     short_sleep()
     if handler.missing_cusip():
       logger.error('Not able to find CUSIP for %s' % symbol)
-      logger.info('Reloading trade using symbol as primary identifier...')
+      logger.error('Reloading trade using symbol as primary identifier...')
       
       oid += 1
       contract = tools.make_contract(symbol)
